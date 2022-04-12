@@ -3,7 +3,6 @@ import { resolve } from "path"
 const fs = require("fs")
 const colors = require("colors");
 const camelCase = require("lodash/camelCase");
-const dayjs = require("dayjs");
 
 export const readEntrySetting = () => {
   try {
@@ -14,6 +13,7 @@ export const readEntrySetting = () => {
   }
 }
 export const writeLogger = (dirName, logName, data) => {
+
   const baseUrl = resolve(__dirname, "../../logs", dirName)
   fs.readdir(baseUrl, (err, files) => {
     if (err) {
@@ -21,9 +21,11 @@ export const writeLogger = (dirName, logName, data) => {
         recursive: true
       })
     }
+    let datetime = new Date().toLocaleString().split(' ');
+    console.log(datetime)
     fs.writeFile(
-      resolve(baseUrl, `${dayjs().format("YYYY-MM-DD")}.logs`),
-      `${dayjs().format("YYYY-MM-DD HH-mm-ss")}${logName}:${JSON.stringify(
+      resolve(baseUrl, `${datetime[0].replace(/\//g,'-')}.logs`),
+      `${datetime} ${logName}:${JSON.stringify(
         data
       )}\n\r`,
       {
@@ -94,8 +96,6 @@ export const rollupInput = (command, port) => {
     resolve(__dirname, "../entry-setting.json"),
     JSON.stringify(entrySetting)
   )
-
-  // console.log(dayjs().format("YYYY-MM-DD"), "########");
 
   // 如果打包的话读取配置分别打包还是一起打包
   if (command === "build") {

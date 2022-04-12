@@ -1,10 +1,8 @@
 <script setup>
-import HelloWorld from "@/components/HelloWorld.vue"
 import TestExample from "@/components/TestExample.vue";
 </script>
 
 <template>
-  <HelloWorld msg="Hello Vue 3 + Vite" />
   <TestExample />
 </template>
 
