@@ -20,7 +20,6 @@
     "@vitejs/plugin-vue": "^1.9.3",
     "colors": "^1.4.0",
     "glob": "^8.0.1",
-    "path": "^0.12.7",
     "unplugin-vue-components": "^0.16.0",
     "vite": "^2.9.1",
     "vite-plugin-html": "^2.1.1"
