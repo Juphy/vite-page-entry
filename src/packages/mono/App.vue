@@ -1,9 +1,11 @@
 <script setup>
 import TestExample from "@/components/TestExample.vue";
+import TestDirective from "@/components/TestDirective.vue";
 </script>
 
 <template>
   <TestExample />
+  <TestDirective />
 </template>
 
 <style>
