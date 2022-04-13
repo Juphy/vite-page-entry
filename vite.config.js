@@ -31,7 +31,7 @@ export default ({ mode, command }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),
-        components: path.resolve(__dirname, "src/components")
+        '@coms': path.resolve(__dirname, "src/components")
       }
     },
     base: "./",

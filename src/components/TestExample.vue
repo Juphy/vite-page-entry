@@ -11,11 +11,11 @@
   <div>age: {{ age }}</div>
   <p>Using text interpolation: {{ rawHtml }}</p>
   <p>Using v-html directive: <span v-html="rawHtml"></span></p>
-  <div v-bind="objectOfAttrs">id, class: {{objectOfAttrs}}</div>
+  <div v-bind="objectOfAttrs">id, class: {{ objectOfAttrs }}</div>
 </template>
 <script>
 import { ref, reactive, toRefs, watch, computed, watchEffect } from "vue"
-import useFeaureX from "./functional/example"
+import { useFeaureX } from "@/hooks/index"
 export default {
   setup() {
     const state = reactive({
@@ -38,13 +38,13 @@ export default {
       num.value -= 1
     }
 
-    const {state: featurex} = useFeaureX()
+    const { state: featurex } = useFeaureX()
 
     const rawHtml = ref('<span style="color: red">This should be red.</span>')
 
     const objectOfAttrs = {
-        id: 'container',
-        class: 'warpper'
+      id: "container",
+      class: "warpper"
     }
     return {
       state,
