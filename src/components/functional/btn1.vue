@@ -7,7 +7,7 @@
 <script>
 import { ref, defineComponent } from "vue"
 export default defineComponent({
-    name: 'btn1',
+    name: 'v-btn1',
     setup(){
         const num = ref(1)
         return { num }

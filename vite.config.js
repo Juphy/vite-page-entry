@@ -11,7 +11,14 @@ export default ({ mode, command }) => {
     port = env.VITE_PORT ? Number(env.VITE_PORT) : 3366
   return {
     plugins: [
-      vue(),
+      vue({
+        // template: {
+        //   compilerOptions: {
+        //     // 将所有带短横线的标签名都视为自定义元素
+        //     isCustomElement: (tag) => tag.includes("-")
+        //   }
+        // }
+      }),
       Components({
         resolvers: [
           ElementPlusResolver({
@@ -31,7 +38,7 @@ export default ({ mode, command }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),
-        '@coms': path.resolve(__dirname, "src/components")
+        "@coms": path.resolve(__dirname, "src/components")
       }
     },
     base: "./",
