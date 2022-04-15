@@ -7,14 +7,20 @@
   <button @click="changeText">改变文本</button>
   <render-btn :type="type">按钮在这里</render-btn>
   <button @click="changeType">修改按钮类型</button>
+  <parent />
+  <Composition />
 </template>
 
 <script>
 import { reactive, ref } from "vue"
 import { renderBtn } from "@coms/functional"
+import parent from "@coms/parent.vue"
+import Composition from "@coms/Composition.vue"
 export default {
   components: {
-    renderBtn
+    renderBtn,
+    parent,
+    Composition
   },
   setup() {
     const color = ref("red"),
