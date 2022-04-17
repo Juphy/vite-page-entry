@@ -1,0 +1,54 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Build Project
+
+on:
+  push:
+    tags: # 当提交代码为tag 是以'v'开头的时候才会触发自动部署服务器
+      - 'v*'
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+
+    steps:
+    # 下载源码
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    # 安装node  
+    - name: "查看node版本"
+      run: node -v
+    - uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    # 安装依赖
+    - name: Install
+      run: npm install
+      
+    # 打包构建
+    - name: Build
+      run: npm run build
+    
+    # 部署到服务器
+    - name: ssh deploy
+      uses: easingthemes/ssh-deploy@v2.2.11
+      with:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        REMOTE_HOST: ${{ secrets.TG_HOST }}
+        REMOTE_USER: ${{ secrets.TG_USER }}
+        SOURCE: '/dist/'
+        TARGET: '/home/www/angular/'
+    
+      
+    
