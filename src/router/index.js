@@ -6,8 +6,8 @@ const routes = [
 ]
 
 export const router = createRouter({
-    // history: createWebHistory(),
-    history: createWebHashHistory(),
+    history: createWebHistory(),
+    // history: createWebHashHistory(),
     routes
 })
 
