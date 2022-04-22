@@ -44,7 +44,7 @@ jobs:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         REMOTE_HOST: ${{ secrets.TG_HOST }}
         REMOTE_USER: ${{ secrets.TG_USER }}
-        SOURCE: '/dist/'
+        SOURCE: 'dist/'
         TARGET: '/home/www/angular/'
 
     - name: ssh deploy tset
@@ -54,7 +54,7 @@ jobs:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         REMOTE_HOST: ${{ secrets.TG_HOST }}
         REMOTE_USER: ${{ secrets.TG_USER }}
-        SOURCE: '/dist/'
+        SOURCE: 'dist/'
         TARGET: '/home/www/ariang/'        
     
       

@@ -48,7 +48,7 @@ export default ({ mode, command }) => {
         "@coms": path.resolve(__dirname, "src/components")
       }
     },
-    base: "./",
+    base: "/",
     build: {
       assetsDir: "./assets",
       rollupOptions: {
