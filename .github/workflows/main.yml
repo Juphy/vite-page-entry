@@ -7,6 +7,7 @@ on:
   push:
     tags: # 当提交代码为tag 是以'v'开头的时候才会触发自动部署服务器
       - 'v*'
+      - 't*'
   pull_request:
     branches: [ master ]
 
