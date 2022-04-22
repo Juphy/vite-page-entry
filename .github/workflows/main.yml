@@ -37,7 +37,7 @@ jobs:
       run: npm run build
     
     # 部署到服务器
-    - name: ssh deploy
+    - name: ssh deploy prod
       uses: easingthemes/ssh-deploy@v2.2.11
       if: startWith(github.ref, 'refs/tags/v')
       with:
@@ -46,6 +46,9 @@ jobs:
         REMOTE_USER: ${{ secrets.TG_USER }}
         SOURCE: '/dist/'
         TARGET: '/home/www/angular/'
+
+    - name: ssh deploy tset
+      uses: easingthemes/ssh-deploy@v2.2.11        
       if: startWith(github.ref, 'refs/tags/t')
       with:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
