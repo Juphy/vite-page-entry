@@ -39,12 +39,20 @@ jobs:
     # 部署到服务器
     - name: ssh deploy
       uses: easingthemes/ssh-deploy@v2.2.11
+      if: startWith(github.ref, 'refs/tags/v')
       with:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         REMOTE_HOST: ${{ secrets.TG_HOST }}
         REMOTE_USER: ${{ secrets.TG_USER }}
         SOURCE: '/dist/'
         TARGET: '/home/www/angular/'
+      if: startWith(github.ref, 'refs/tags/t')
+      with:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        REMOTE_HOST: ${{ secrets.TG_HOST }}
+        REMOTE_USER: ${{ secrets.TG_USER }}
+        SOURCE: '/dist/'
+        TARGET: '/home/www/ariang/'        
     
       
     
