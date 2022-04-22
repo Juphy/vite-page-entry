@@ -39,7 +39,7 @@ jobs:
     # 部署到服务器
     - name: ssh deploy prod
       uses: easingthemes/ssh-deploy@v2.2.11
-      if: startWith(github.ref, 'refs/tags/v')
+      if: ${{startWith(github.ref, 'refs/tags/v')}}
       with:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         REMOTE_HOST: ${{ secrets.TG_HOST }}
@@ -49,7 +49,7 @@ jobs:
 
     - name: ssh deploy tset
       uses: easingthemes/ssh-deploy@v2.2.11        
-      if: startWith(github.ref, 'refs/tags/t')
+      if: ${{startWith(github.ref, 'refs/tags/t')}}
       with:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         REMOTE_HOST: ${{ secrets.TG_HOST }}
