@@ -47,7 +47,7 @@ jobs:
         SOURCE: 'dist/'
         TARGET: '/home/www/vue/'
 
-    - name: ssh deploy tset
+    - name: ssh deploy test
       uses: easingthemes/ssh-deploy@v2.2.11        
       if: startsWith(github.ref, 'refs/tags/t')
       with:
