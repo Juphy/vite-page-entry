@@ -2,12 +2,13 @@ import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router
 
 const routes = [
     { path: '', redirect: '/fish' },
-    { path: '/fish', component: () => import("@/views/fish/index.vue") }
+    { path: '/fish', component: () => import("@/views/fish/index.vue") },
+    { path: '/room', component: () => import("@/views/room/index.vue") },
 ]
 
 export const router = createRouter({
-    history: createWebHistory(),
-    // history: createWebHashHistory(),
+    // history: createWebHistory(),
+    history: createWebHashHistory(),
     routes
 })
 
