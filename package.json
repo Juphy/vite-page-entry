@@ -5,9 +5,8 @@
     "dev": "vite --mode development",
     "serve": "vite preview --port 9090",
     "build": "vite build",
-    "main": "vite serve src/packages/main/ --config ./vite.config.js --port 3001",
-    "mono": "vite serve src/packages/mono/ --config ./vite.config.js --port 3002",
-    "build:main": "vite build src/packages/main/ --config ./vite.config.js"
+    "build:main": "vite build src/packages/main/ --config ./vite.config.js",
+    "start": "node ./server/webrtc-server.js"
   },
   "dependencies": {
     "core-js": "^3.21.1",
@@ -17,6 +16,7 @@
     "koa-static": "^5.0.0",
     "lodash": "^4.17.21",
     "socket.io": "^4.5.0",
+    "socket.io-client": "^4.5.0",
     "vue": "^3.2.16",
     "vue-router": "^4.0.14"
   },
