@@ -45,9 +45,9 @@ jobs:
         REMOTE_HOST: ${{ secrets.TG_HOST }}
         REMOTE_USER: ${{ secrets.TG_USER }}
         SOURCE: 'dist/'
-        TARGET: '/home/www/angular/'
+        TARGET: '/home/www/vue/'
 
-    - name: ssh deploy tset
+    - name: ssh deploy test
       uses: easingthemes/ssh-deploy@v2.2.11        
       if: startsWith(github.ref, 'refs/tags/t')
       with:
@@ -55,7 +55,7 @@ jobs:
         REMOTE_HOST: ${{ secrets.TG_HOST }}
         REMOTE_USER: ${{ secrets.TG_USER }}
         SOURCE: 'dist/'
-        TARGET: '/home/www/ariang/'        
+        TARGET: '/home/www/vue-test/'        
     
       
     
