@@ -49,7 +49,8 @@ const options = {
         pingInterval: 5000,
     },
     cors: {
-        origin: 'http://localhost:18101',
+        // origin: 'http://localhost:18101',
+        origin: 'https://www.juphy.cn',
         credentials: true
     }
 };
